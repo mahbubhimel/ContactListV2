@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import ContactListApiCall from "./components/ContactListApiCall";
+import ContactDetails from "./components/ContactDetails";
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
+import CallUI from "./components/CallUI";
+import AddContactDetails from "./components/AddContactDetails";
+import EditContactDetails from "./components/EditContactDetails";
+import RecentList from "./components/RecentList";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<ContactListApiCall></ContactListApiCall>}></Route>
+          <Route path="/details" element={<ContactDetails></ContactDetails>}></Route>
+          <Route path="/callui" element={<CallUI></CallUI>}></Route>
+          <Route path="/addcontact" element={<AddContactDetails></AddContactDetails>}></Route>
+          <Route path="/editcontact" element={<EditContactDetails></EditContactDetails>}></Route>
+          <Route path="/recentlist" element={<RecentList></RecentList>}></Route>
+        </Routes>
+     </BrowserRouter>
     </div>
   );
 }
